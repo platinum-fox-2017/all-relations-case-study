@@ -1,1 +1,13 @@
 http://prntscr.com/igedch
+
+CREATE TABLE manajer ( id INTEGER PRIMARY KEY, nama_manajer TEXT );
+
+CREATE TABLE proyek ( id INTEGER PRIMARY KEY, nama_proyek TEXT );
+
+CREATE TABLE departemen ( id INTEGER PRIMARY KEY, nama_departemen TEXT , manajer_id INTEGER, FOREIGN KEY (manajer_id) REFERENCES manajer(id) ) ;
+
+
+CREATE TABLE karyawan ( id INTEGER PRIMARY KEY, nik TEXT , nama_depan TEXT, nama_belakang TEXT, jenis_kelamin TEXT, email TEXT, phone_number TEXT,  departemen_id INTEGER, FOREIGN KEY (departemen_id) REFERENCES departemen(id) ) ;
+
+
+CREATE TABLE proyek_karyawan ( id INTEGER PRIMARY KEY, proyek_id INTEGER, karyawan_id INTEGER, FOREIGN KEY (proyek_id) REFERENCES proyek(id), FOREIGN KEY (karyawan_id) REFERENCES karyawan(id) );
