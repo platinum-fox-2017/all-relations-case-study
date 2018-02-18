@@ -1,0 +1,61 @@
+CREATE TABLE karyawan (
+nik INTEGER NOT NULL PRIMARY KEY,
+namaDepan TEXT NOT NULL,
+namaBelakang TEXT NOT NULL,
+email TEXT NOT NULL,
+phone TEXT,
+kodeManajer INTEGER,
+FOREIGN KEY(kodeManajer) REFERENCES manajer(kodeManajer));
+
+CREATE TABLE departemen (
+kodeDepartemen INTEGER NOT NULL PRIMARY KEY,
+nama TEXT NOT NULL,
+lokasi TEXT NOT NULL,
+nik INTEGER NOT NULL,
+FOREIGN KEY(nik) REFERENCES karyawan(nik));
+
+CREATE TABLE manajer (
+kodeManajer INTEGER NOT NULL PRIMARY KEY,
+lamaJabatan TEXT,
+kodeDepartemen INTEGER NOT NULL,
+FOREIGN KEY(kodeDepartemen) REFERENCES departemen(kodeDepartemen));
+
+CREATE TABLE proyek (
+idProyek INTEGER NOT NULL PRIMARY KEY,
+namaProyek TEXT NOT NULL,
+waktuProyek TEXT NOT NULL,
+nilaiProyek INTEGER NOT NULL);
+
+CREATE TABLE proyekKaryawan (
+idProyekNik INTEGER NOT NULL PRIMARY KEY,
+nik INTEGER NOT NULL,
+idProyek INTEGER NOT NULL,
+FOREIGN KEY(nik) REFERENCES karyawan(nik),
+FOREIGN KEY(idProyek) REFERENCES proyek(idProyek));
+
+INSERT INTO karyawan VALUES (05401,'Agung','Prabowo','agungp@pindad.com','2112',NULL);
+INSERT INTO karyawan VALUES (05403,'Arie','Muliawan','arie@pindad.com','2255',NULL);
+INSERT INTO karyawan VALUES (05606,'Eki','Fakhrureza','eki@pindad.com','2112',NULL);
+INSERT INTO karyawan VALUES (02412,'Rudi','Haryadi','rudi@pindad.com','2828',8001);
+INSERT INTO karyawan VALUES (05223,'Kuncoro','Budi Wisnu','budiwisnu@pindad.com','2000',8002);
+
+INSERT INTO departemen VALUES (7002,'Departemen Data Informasi Sub Admin','Gedung 181',05401);
+INSERT INTO departemen VALUES (7001,'Departemen Operasional IT Sub Hardware','Gedung 181',05403);
+INSERT INTO departemen VALUES (7003,'Departemen Data Informasi Sub ABAP','Gedung 181',05606);
+INSERT INTO departemen VALUES (7011,'Departemen Operasional IT','Gedung 181',05606);
+INSERT INTO departemen VALUES (7012,'Departemen Data Informasi','Gedung 181',05223);
+
+INSERT INTO manajer VALUES (8001,'8 Tahun',7011);
+INSERT INTO manajer VALUES (8002,'2 Tahun',7012);
+
+
+INSERT INTO proyek VALUES (1,'Implementasi SAP Content Server','3 bulan',100000000);
+INSERT INTO proyek VALUES (2,'Development SAP Fiori','6 bulan',300000000);
+INSERT INTO proyek VALUES (3,'Development EIS Mobile Apps','4 bulan',200000000);
+INSERT INTO proyek VALUES (4,'Sistem Integrasi Pengamanan','7 bulan',150000000);
+INSERT INTO proyek VALUES (5,'Training Full Stack Javascript','3 bulan',80000000);
+
+INSERT INTO proyekKaryawan VALUES (101,05401,1);
+INSERT INTO proyekKaryawan VALUES (102,05403,1);
+INSERT INTO proyekKaryawan VALUES (103,05606,2);
+INSERT INTO proyekKaryawan VALUES (104,05401,2);
