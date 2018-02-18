@@ -1,0 +1,120 @@
+CREATE TABLE employee (
+  employee_id int NOT NULL PRIMARY KEY,
+  first_name VARCHAR(255),
+  last_name VARCHAR(255),
+  age int,
+  gender VARCHAR(255),
+  phone VARCHAR(255),
+  email VARCHAR(255)
+);
+
+
+INSERT INTO employee (employee_id, first_name, last_name, age, gender, phone, email)
+VALUES
+ (1, 'Fransiskus', 'Teddy', 29, 'male', '089-21344471', 'ainsoph@gmail.com'),
+ (2, 'Jennifer', 'Lisman', 22, 'male', '089-123910923', 'test@coding.com'),
+ (3, 'Ryan', 'Akbar', 30, 'male', '084-65459862', 'orange@apples.com'),
+ (4, 'Adhy', 'Wiranata', 28, 'male', '081-5671324', 'box@controller.com'),
+ (5, 'Windiana', 'Krismanuyar', 25, 'female', '085-123879545', 'steam@engine.com'),
+ (6, 'Yohanes', 'Wahyudi', 33, 'male', '087-352769784', 'pottery@plant.com'),
+ (7, 'Kevin', 'Lamatur', 35, 'male', '086-467893683', 'alfalfa@gmail.com'),
+ (8, 'Lucian', 'Septem', 40, 'male', '082-345576845', 'limited@zero.com'),
+ (9, 'Gina', 'Denati', 25, 'female', '085-399750034', 'mystic@eyes.com');
+
+
+
+CREATE TABLE manager (
+  manager_id int NOT NULL PRIMARY KEY,
+  first_name VARCHAR(255),
+  last_name VARCHAR(255),
+  employee_id int NOT NULL,
+  FOREIGN KEY (employee_id) REFERENCES employee(employee_id)
+);
+
+INSERT INTO manager (manager_id, first_name, last_name, employee_id)
+VALUES
+ (1, 'Windiana', 'Krismanuyar', 5),
+ (2, 'Yohanes', 'Wahyudi', 6),
+ (3, 'Kevin', 'Lamatur', 7),
+ (4, 'Lucian', 'Septem', 8),
+ (5, 'Gina', 'Denati', 9);
+
+
+
+
+CREATE TABLE department (
+  dept_id int NOT NULL PRIMARY KEY,
+  dept_name VARCHAR(255),
+  manager_id int NOT NULL,
+  FOREIGN KEY (manager_id) REFERENCES manager(manager_id)
+);
+
+INSERT INTO department (dept_id, dept_name, manager_id)
+VALUES
+ (1, 'Warehouse', 1),
+ (2, 'Marketing', 2),
+ (3, 'R&D', 3),
+ (4, 'Business', 4),
+ (5, 'Top Management', 5);
+
+
+
+
+
+CREATE TABLE department_assignment (
+  assignment_id NOT NULL PRIMARY KEY,
+  dept_id int NOT NULL,
+  dept_name VARCHAR(255),
+  employee_id int NOT NULL,
+  FOREIGN KEY (dept_id) REFERENCES department(dept_id),
+  FOREIGN KEY (employee_id) REFERENCES employee(employee_id)
+);
+
+INSERT INTO department_assignment (assignment_id, dept_id, dept_name, employee_id)
+VALUES
+ (1, 1, 'Warehouse', 1),
+ (2, 2, 'Marketing', 2),
+ (3, 2, 'Marketing', 5),
+ (4, 3, 'R&D', 3),
+ (5, 4, 'Business', 4);
+
+
+
+
+
+
+CREATE TABLE project (
+  project_id int NOT NULL PRIMARY KEY,
+  project_name VARCHAR(255),
+  deadline DATE
+);
+
+INSERT INTO project (project_id, project_name, deadline)
+VALUES
+ (1, 'New Marketing Push', '2018-09-00'),
+ (2, 'New Offices', '2018-12-03'),
+ (3, 'Data analysis', '2018-08-00'),
+ (4, 'System Upgrade', '2018-08-00'),
+ (5, 'Public reveal', '2018-06-22');
+
+
+
+
+
+
+CREATE TABLE project_members (
+  member_id int NOT NULL PRIMARY KEY,
+  project_id int NOT NULL,
+  project_name VARCHAR(255),
+  employee_id int NOT NULL,
+  FOREIGN KEY (project_id) REFERENCES project(project_id),
+  FOREIGN KEY (employee_id) REFERENCES employee(employee_id)
+);
+
+INSERT INTO project_members (member_id, project_id, project_name, employee_id)
+VALUES
+ (1, 1, 'New Marketing Push', 1),
+ (2, 2, 'New Offices', 2),
+ (3, 3, 'Data analysis', 3),
+ (4, 4, 'System Upgrade', 4),
+ (5, 5, 'Public reveal', 5);
