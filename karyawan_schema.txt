@@ -1,0 +1,34 @@
+
+CREATE TABLE project(idProjec INTEGER, projectName TEXT);
+CREATE TABLE employees(idEmployee INTEGER, firtsName TEXT, lastName TEXT, gender TEXT, email TEXT, phone_nuber TEXT, idDepartement INTEGER);
+CREATE TABLE employee_project(idEmployeeProject INTEGER, idProject INTEGER, idEmployee INTEGER);
+CREATE TABLE manager(idManager INTEGER, name TEXT, idDepartement INTEGER);
+CREATE TABLE department(idDepartement INTEGER, deptName TEXT, idManager INTEGER);
+
+
+INSERT INTO project VALUES(1, 'GO-PAY');
+INSERT INTO project VALUES(2, 'GO-FOOD');
+INSERT INTO project VALUES(3, 'GO-CAR');
+INSERT INTO project VALUES(4, 'GO-GLAM');
+INSERT INTO project VALUES(5, 'GO-ACADEMY');
+
+INSERT INTO employees VALUES(1, 'Arfan', 'Firmansya','Male', 'asd@gmail.com','21343223', 1);
+INSERT INTO employees VALUES(2, 'Ardhi','Meta','Male', 'amm@gmail.com','21343223', 2);
+INSERT INTO employees VALUES(3, 'Rey', 'Pane','Male', 'arpmgmail.com','21343223', 1);
+INSERT INTO employees VALUES(4, 'Fatimah', 'Halimati','Female', 'wooo@gmail.com', '21343223',2);
+INSERT INTO employees VALUES(5, 'Endang', 'Soekamti','Male', '123@gmail.com','21343223', 2);
+
+INSERT INTO employee_project VALUES(1, 1, 2);
+INSERT INTO employee_project VALUES(2, 2, 4);
+INSERT INTO employee_project VALUES(3, 3, 5);
+INSERT INTO employee_project VALUES(4, 4, 2);
+INSERT INTO employee_project VALUES(5, 5, 5);
+INSERT INTO employee_project VALUES(6, 1, 5);
+
+
+INSERT INTO manager VALUES(1,'Afrizal', 1);
+INSERT INTO manager VALUES(2,'Dadang', 2);
+
+
+INSERT INTO department VALUES(1, 'Marketing', 1);
+INSERT INTO department VALUES(2, 'Software Developer', 2);
