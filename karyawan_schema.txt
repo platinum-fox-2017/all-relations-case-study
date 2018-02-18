@@ -1,1 +1,39 @@
-https://intip.in/karyawanSchema
+https://intip.in/karyawanschema
+
+QUERY:
+	CREATE TABLE:
+		1. CREATE TABLE Projek(id INTEGER, nama TEXT, deadline DATE);
+		2. CREATE TABLE Karyawan(id INTEGER, nama TEXT, alamat TEXT, telepon TEXT, idDepartemen INTEGER);
+		3. CREATE TABLE Projek_Karyawan(id INTEGER, idProjek INTEGER, idKaryawan INTEGER);
+		4. CREATE TABLE Manager(id INTEGER, idKaryawan INTEGER);
+		5. CREATE TABLE Departemen(id INTEGER, nama TEXT, idManager INTEGER);
+
+	INSERT TABLE Projek:
+		1. INSERT INTO Projek VALUES(1, 'BUKALAPAK', '01/03/2018');
+		2. INSERT INTO Projek VALUES(2, 'TOKOPEDIA', '01/04/2018');
+		3. INSERT INTO Projek VALUES(3, 'GO-JEK', '01/05/2018');
+		4. INSERT INTO Projek VALUES(4, 'HIJUP', '01/04/2018');
+		5. INSERT INTO Projek VALUES(5, 'KASKUS', '12/05/2018');
+
+	INSERT TABLE Karyawan:
+		1. INSERT INTO Karyawan VALUES(1, 'Andi', 'Jakarta', '123-456', 1);
+		2. INSERT INTO Karyawan VALUES(2, 'Budi', 'Bekasi', '234-567', 2);
+		3. INSERT INTO Karyawan VALUES(3, 'Charles', 'Tangerang', '345-678', 1);
+		4. INSERT INTO Karyawan VALUES(4, 'Dodi', 'Jakarta', '456-789', 2);
+		5. INSERT INTO Karyawan VALUES(5, 'Eni', 'Bogor', '567-890', 2);
+
+	INSERT TABLE Projek_Karyawan:
+		1. INSERT INTO Projek_Karyawan VALUES(1, 1, 2);
+		2. INSERT INTO Projek_Karyawan VALUES(2, 2, 4);
+		3. INSERT INTO Projek_Karyawan VALUES(3, 3, 5);
+		4. INSERT INTO Projek_Karyawan VALUES(4, 4, 2);
+		5. INSERT INTO Projek_Karyawan VALUES(5, 5, 5);
+		6. INSERT INTO Projek_Karyawan VALUES(6, 1, 5);
+
+	INSERT TABLE Manager:
+		1. INSERT INTO Manager VALUES(1, 1);
+		2. INSERT INTO Manager VALUES(2, 2);
+
+	INSERT TABLE DEPARTEMEN:
+		1. INSERT INTO Departemen VALUES(1, 'HRD', 1);
+		2. INSERT INTO Departemen VALUES(2, 'IT', 2);
