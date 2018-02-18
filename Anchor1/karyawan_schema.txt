@@ -1,0 +1,48 @@
+https://imgur.com/ncezYrC
+
+TABLE karyawan
+NIK         NamaDepan   NamaBelakang  JenisKelamin  Email                       PhoneNumber  Position
+----------  ----------  ------------  ------------  --------------------------  -----------  ------------
+1           Sebastian   Marco         Pria          sebastian.sumali@gmail.com  08123456789  PembantuUmum
+2           Marco       Sumali        Pria          marco.sumali@hotmail.com    08987656411  OfficeBoy
+3           Marco       Marcelina     Perempuan     marco.marcel@hotmail.com    08987622211  OfficeGirl
+4           Marco       Polo          Perempuan     marco.polo@hotmail.com      08234567891  HeadOfSanita
+5           Soemali     Marcel        Pria          somealimarcel@hotmail.com   08981673118  ParkingAssis
+
+TABLE karyawan_project
+ID          ProjecTID   KaryawanNIK
+----------  ----------  -----------
+1           1           1
+2           2           2
+3           3           3
+4           4           4
+5           5           5
+6           6           6
+
+TABLE Project
+ProjecTID   ProjectName
+----------  --------------
+1           JembatanTinggi
+2           JembatanPanjan
+3           JembatanPendek
+4           JembatanPaling
+5           JembatanAjah
+
+TABLE Departemen
+DepartementID  DepartementName
+-------------  ---------------
+1              Finance
+2              HRD
+3              Operasional
+4              Office
+5              Others
+
+TABLE Manager
+ManagerID   DepartemenID
+----------  ------------
+1           1
+2           2
+3           3
+4           4
+5           5
+6           6
