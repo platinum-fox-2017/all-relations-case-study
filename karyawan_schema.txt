@@ -1,0 +1,61 @@
+Table Link :
+https://imgur.com/U7ozGO9
+
+
+
+CREATE TABLE Employees (
+	id INTEGER PRIMARY KEY,
+	NIK INTEGER,
+	first_name VARCHAR(255),
+	last_name VARCHAR(255),
+	gender VARCHAR(6),
+	email VARCHAR(255),
+	phone VARCHAR(20),
+	departementID INTEGER
+);
+
+CREATE TABLE Managers (
+	managerID INTEGER PRIMARY KEY,
+	employeeID int
+);
+
+CREATE TABLE Projects (
+	projectID INTEGER PRIMARY KEY,
+	name VARCHAR(255)
+);
+
+CREATE TABLE Projects_Details(
+	project_detailID INTEGER PRIMARY KEY,
+	employeeID INTEGER,
+	projectID INTEGER
+);
+
+CREATE TABLE Departements(
+	departementID INTEGER PRIMARY KEY,
+	name VARCHAR(255),
+	managerID INTEGER
+);
+
+
+INSERT INTO Employees (id, NIK, first_name, last_name, gender, email, phone, departementID) VALUES (1, 3216191110930003, 'Ervan', 'Adetya', 'male', 'ervan@halo.com', '087877971875', 1);
+INSERT INTO Employees (id, NIK, first_name, last_name, gender, email, phone, departementID) VALUES (2, 3216191110930004, 'Tatang', 'Ratatang', 'male', 'ratatang@halo.com', '087877971875', 1);
+INSERT INTO Employees (id, NIK, first_name, last_name, gender, email, phone, departementID) VALUES (3, 3216191110930005, 'Maman', 'Lamalam', 'male', 'lamalam@halo.com', '087877971875', 1);
+INSERT INTO Employees (id, NIK, first_name, last_name, gender, email, phone, departementID) VALUES (4, 3216191110930006, 'Rita', 'Tari', 'female', 'tari@halo.com', '087877123875', 1);
+INSERT INTO Employees (id, NIK, first_name, last_name, gender, email, phone, departementID) VALUES (5, 3216191110930007, 'Candy', 'Permen', 'female', 'permen@halo.com', '087879511875', 1);
+
+INSERT INTO managers (managerID, employeeID) VALUES (1, 1);
+
+INSERT INTO Projects (projectID, name) VALUES (1, 'habisin kue');
+INSERT INTO Projects (projectID, name) VALUES (2, 'kelarin tugas');
+
+INSERT INTO Projects_Details (project_detailID, employeeID, projectID) VALUES (1, 1, 1);
+INSERT INTO Projects_Details (project_detailID, employeeID, projectID) VALUES (2, 2, 1);
+INSERT INTO Projects_Details (project_detailID, employeeID, projectID) VALUES (3, 3, 1);
+INSERT INTO Projects_Details (project_detailID, employeeID, projectID) VALUES (4, 1, 2);
+INSERT INTO Projects_Details (project_detailID, employeeID, projectID) VALUES (5, 2, 2);
+INSERT INTO Projects_Details (project_detailID, employeeID, projectID) VALUES (6, 3, 2);
+INSERT INTO Projects_Details (project_detailID, employeeID, projectID) VALUES (7, 4, 1);
+INSERT INTO Projects_Details (project_detailID, employeeID, projectID) VALUES (8, 5, 2);
+
+INSERT INTO Departements (departementID, name, managerID) VALUES (1, 'departemen siap tutup', 1);
+
